@@ -1,0 +1,82 @@
+*, *::before, *::after
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.header
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.intro-overlay
+{
+
+}
+
+.how-to-play-overlay
+{
+    
+}
+
+.btn
+{
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.how-to-play-btn
+{
+
+}
+
+.how-to-play-btn:hover
+{
+
+}
+
+.play-btn
+{
+
+}
+
+.play-btn:hover
+{
+
+}
+
+.title
+{
+
+}
+
+.score
+{
+    font-weight: bold;
+}
+
+.game-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.game-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
