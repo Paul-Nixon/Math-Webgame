@@ -1,0 +1,57 @@
+*, *::before, *::after
+{
+    box-sizing: border-box;
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+/* The website's header */
+.main-header
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav ul
+{
+    margin: 0;
+}
+
+.nav li
+{
+    display: inline;
+}
+
+.nav a
+{
+    padding: 0.5em;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav a:hover
+{
+
+}
+
+.main-nav
+{
+    text-align: center;
+}
+
+.container
+{
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0; /* Placeholder value */
+}
+
+.content-section
+{
+    margin: 1em;
+}

@@ -1,37 +1,13 @@
-*, *::before, *::after
-{
-    box-sizing: border-box;
-}
-
-body
-{
-    margin: 0;
-    padding: 0;
-}
-
-.header
-{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
+/* Screen that appears when the webpage fully loads */
 .intro-overlay
 {
 
 }
 
+/* Screen that appears when the user clicks the "how-to-play" button */
 .how-to-play-overlay
 {
     
-}
-
-.btn
-{
-    vertical-align: middle;
-    cursor: pointer;
-    text-align: center;
-    padding: 0.5em;
 }
 
 .how-to-play-btn
