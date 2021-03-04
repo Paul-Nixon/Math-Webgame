@@ -9,12 +9,30 @@ html, body
     padding: 0;
 }
 
+html
+{
+    font-size: 100%;
+}
+
+body
+{
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* The website's header */
 .main-header
 {
+    background-color: purple;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+
+/* The website's name */
+.brand-name
+{
+    color: white;
+    font-size: 1.875rem; /* Equivalent to 30px */
 }
 
 .nav ul
@@ -44,14 +62,31 @@ html, body
     text-align: center;
 }
 
+.main-nav li
+{
+    
+}
+
+.main-nav a
+{
+    color: white;
+}
+
 .container
 {
     margin: 0 auto;
     max-width: 1000px;
-    padding: 0; /* Placeholder value */
+    padding: 0 1.5em; /* Placeholder value */
 }
 
 .content-section
 {
     margin: 1em;
+}
+
+.section-header
+{
+    font-weight: normal;
+    text-align: center;
+    font-size: 3em;
 }
