@@ -50,11 +50,7 @@ body
     padding: 0.5em;
     display: inline-block;
     text-decoration: none;
-}
-
-.nav a:hover
-{
-
+    cursor: pointer;
 }
 
 .main-nav
@@ -62,14 +58,20 @@ body
     text-align: center;
 }
 
-.main-nav li
-{
-    
-}
-
 .main-nav a
 {
     color: white;
+}
+
+
+.main-nav li a
+{
+    transition: background-color 300ms ease-in-out;
+}
+
+.main-nav li a:hover
+{
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .container

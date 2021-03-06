@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 1.25rem; /* Equivalent to 20px */
+    margin-right: 1.5625rem; /* Equivalent to 25px */
 }
 
 /* Our Names */
@@ -35,23 +35,34 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
-}
-
-.pfp:first-of-type
-{
-    align-self: center;
+    box-shadow: green 0px 0px 20px;
 }
 
 /* Description about ourselves */
 .profile-text
 {
+    margin: 0;
     text-align: center;
 }
 
 @media (max-width: 600px)
 {
+
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .profile-section
     {
         flex-direction: column;
+    }
+    
+    .name-and-pfp-wrapper
+    {
+        margin-bottom: 1.5625rem; /* Equivalent to 25px */
     }
 }
