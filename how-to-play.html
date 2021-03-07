@@ -29,19 +29,19 @@
             <!-- Webpage Navigation -->
             <h2 class="how-to-play-section-title">Navigation</h2>
             <ul class="how-to-play-nav">
-                <li>Layout</li>
+                <li><a href="#layout">Layout</a></li>
                 <li>
-                    Gameplay
+                    <a href="#gameplay">Gameplay</a>
                     <ul>
-                        <li>Answering Questions</li>
-                        <li>Multiplier</li>
-                        <li>Timer</li>
+                        <li><a href="#answering-questions">Answering Questions</a></li>
+                        <li><a href="#multiplier">Multiplier</a></li>
+                        <li><a href="#timer">Timer</a></li>
                     </ul>
                 </li>
             </ul>
 
             <!-- Layout -->
-            <h2 class="how-to-play-section-title">Layout</h2>
+            <h2 id="layout" class="how-to-play-section-title">Layout</h2>
             <ul>
                 <li>Timer (above the container)</li>
                 <li>Score (top right)</li>
@@ -57,15 +57,15 @@
             </ul>
 
             <!-- Gameplay -->
-            <h2 class="how-to-play-section-title">Gameplay</h2>
+            <h2 id="gameplay" class="how-to-play-section-title">Gameplay</h2>
 
-            <h3 class="how-to-play-sub-section-title">Answering Questions</h3>
+            <h3 id="answering-questions" class="how-to-play-sub-section-title">Answering Questions</h3>
             <ul>
                 <li>Answering a question correctly increases the score by 10 points</li>
                 <li>Answering a question incorrectly decreases the score by 5 points</li>
             </ul>
 
-            <h3 class="how-to-play-sub-section-title">Multiplier</h3>
+            <h3 id="multiplier" class="how-to-play-sub-section-title">Multiplier</h3>
             <ul>
                 <li>Starts at 1x</li>
                 <li>Increases by 1 if the player answers a question correctly</li>
@@ -77,15 +77,14 @@
                 </li>
             </ul>
 
-            <h3 class="how-to-play-sub-section-title">Timer</h3>
+            <h3 id="timer" class="how-to-play-sub-section-title">Timer</h3>
             <ul>
                 <li>Starts as soon as the webpage fully loads</li>
                 <li> 
                     When it expires, an overlay will appear displaying the number of correct and
                     incorrect answers, the final score and high score, and a button prompting the user
-                    to play the game again
+                    to play the game again (everything restarts when the user clicks the "play again" button)
                 </li>
-                <li>Restarts if the player clicks the "play again" button</li>
             </ul>
         </div>
     </section>
