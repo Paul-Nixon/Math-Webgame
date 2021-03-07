@@ -25,31 +25,68 @@
     <section class="content-section">
         <div class="container">
             <h2 class="section-title">How to Play</h2>
-        
-            <ol class="how-to-play-list">
+            
+            <!-- Webpage Navigation -->
+            <h2 class="how-to-play-section-title">Navigation</h2>
+            <ul class="how-to-play-nav">
+                <li>Layout</li>
                 <li>
-                    At the center of the Math WebGame page, there's a container consisting of
-                    a math problem, a number field in which the player can enter their answer, and
-                    a button the player clicks to submit their answer. Also, there's a timer which
-                    ends the game when it expires, so they should answer each question as quickly
-                    as possible.
+                    Gameplay
+                    <ul>
+                        <li>Answering Questions</li>
+                        <li>Multiplier</li>
+                        <li>Timer</li>
+                    </ul>
                 </li>
-                <li>
-                    The player's score starts at 0 points. If the player answers a question correctly,
-                    their score will increase by 10 points. Otherwise, their score will decrease by 5 points.
-                    Note that there's a multiplier which increases by 1 if the player answers a question
-                    correctly and decreases by 1 otherwise. The multiplier multiplies its number by 5 points
-                    and adds the result to the player's score. (For example, if the player's current score is 10
-                    and the multiplier is 4x, then the score will be 50 if they answered the current question
-                    correctly.)
-                </li>
-                <li>
-                    When the timer expires, 
-                </li>
-                <li>
+            </ul>
 
+            <!-- Layout -->
+            <h2 class="how-to-play-section-title">Layout</h2>
+            <ul>
+                <li>Timer (above the container)</li>
+                <li>Score (top right)</li>
+                <li>Multiplier (next to the score)</li>
+                <li>
+                    Container (center of the screen)
+                    <ul>
+                        <li>Math problem</li>
+                        <li>Number input field</li>
+                        <li>Submit button</li>
+                    </ul>
                 </li>
-            </ol>
+            </ul>
+
+            <!-- Gameplay -->
+            <h2 class="how-to-play-section-title">Gameplay</h2>
+
+            <h3 class="how-to-play-sub-section-title">Answering Questions</h3>
+            <ul>
+                <li>Answering a question correctly increases the score by 10 points</li>
+                <li>Answering a question incorrectly decreases the score by 5 points</li>
+            </ul>
+
+            <h3 class="how-to-play-sub-section-title">Multiplier</h3>
+            <ul>
+                <li>Starts at 1x</li>
+                <li>Increases by 1 if the player answers a question correctly</li>
+                <li>Decreases by 1 if the player answers a question incorrectly</li>
+                <li>
+                    Increases the score by the result of its number times 10 if the player
+                    answers a question correctly (For example, if the score is 30, the multiplier is
+                    3x, and a correct answer was made, then the updated score would be 60)
+                </li>
+            </ul>
+
+            <h3 class="how-to-play-sub-section-title">Timer</h3>
+            <ul>
+                <li>Starts as soon as the webpage fully loads</li>
+                <li> 
+                    When it expires, an overlay will appear displaying the number of correct and
+                    incorrect answers, the final score and high score, and a button prompting the user
+                    to play the game again
+                </li>
+                <li>Restarts if the player clicks the "play again" button</li>
+            </ul>
         </div>
     </section>
 </body>
