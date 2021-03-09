@@ -40,9 +40,12 @@
     font-weight: bold;
 }
 
-.game-section
+.container
 {
+    width: 100%;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -51,8 +54,54 @@
 
 .game-container
 {
+    background: linear-gradient(to right, red, orange);
+    width: 50vw;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+}
+
+.math-problem
+{
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+.player-choice
+{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 0;
+    text-align: center;
+    border: 3px solid blue;
+}
+
+.enter-choice-btn
+{
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    color: yellow;
+    background-color: purple;
+    padding: 0.67em;
+    border-radius: 0.5em;
+    font-size: 1em;
+}
+
+.enter-choice-btn:hover
+{
+    background-color: rgb(216, 21, 216);
+}
+
+.timer
+{
+    font-weight: bold;
+    font-size: 3em;
 }

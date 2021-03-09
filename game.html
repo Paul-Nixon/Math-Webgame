@@ -7,6 +7,7 @@
     <title>Math Webgame</title>
     <script src="game.js" defer></script>
     <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="globals.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -17,11 +18,16 @@
     </header>
 
     <!-- Main/Game Section -->
-    <section class="game-section">
-        <div class="game-container">
-            <span class="math-problem"></span>
-            <input type="number" class="player-choice">
-            <button type="button" class="btn enter-choice-btn">ENTER CHOICE</button>
+    <section class="content-section">
+        <div class="container">
+            <div class="timer">
+                <span class="minutes"></span> : <span class="seconds"></span>
+            </div>
+            <div class="game-container">
+                <span class="math-problem">7 + 5</span>
+                <input type="number" class="player-choice">
+                <button type="button" class="enter-choice-btn">ENTER CHOICE</button>
+            </div>
         </div>
     </section>
 </body>
