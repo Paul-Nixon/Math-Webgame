@@ -7,16 +7,52 @@ else
     ready();
 }
 
+/* Function ready()  */
 function ready()
 {
-    document.querySelector(".player-choice").addEventListener("changed", answerChanged);
+    initializeTimer();
+    document.querySelector(".player-choice").addEventListener("click", () => {
+      let executed = false;
+
+      return () =>
+      {
+        if (!executed)
+        {
+          // Start the timer.
+        }
+      };
+    })();
 }
 
-
-function answerChanged(event)
+/* Function initializeTimer() initializes the timer and renders it in the webpage.
+   Precondition: The webpage's fully loaded.
+   Postcondition: The timer's initialized and rendered in the webpage.
+*/
+function initializeTimer()
 {
-
+    // Display the timer.
+    let timeInMinutes = 10;
+    document.querySelector(".minutes").innerHTML = `${timeInMinutes}`;
+    document.querySelector(".seconds").innerHTML = `00`;
 }
+
+
+/* Function play() */
+function play()
+{
+    // 
+}
+
+/* Function generateMathProblem() generates a math problem for the player to answer.
+   Precondition: The webpage's fully loaded and the player clicks the "ENTER CHOICE" button.
+   Postcondition: A new math problem is rendered in the game container.
+*/
+function generateMathProblem()
+{
+    // 
+}
+
+/* Countdown Timer Code Below */
 
 /*function getTimeRemaining(endtime) {
     const total = Date.parse(endtime) - Date.parse(new Date());
@@ -55,4 +91,4 @@ function answerChanged(event)
   initializeClock('.timer', deadline);
   
   
-  
+*/
