@@ -10,32 +10,73 @@ else
 /* Function ready()  */
 function ready()
 {
-    initializeTimer();
-    document.querySelector(".player-choice").addEventListener("click", () => {
-      let executed = false;
-
-      return () =>
-      {
+    // Start the timer whem the player clicks the number input.
+    const timeInMinutes = 10;
+    let executed = false;
+    const input = document.querySelector(".player-choice");
+    input.addEventListener("click", () => {
+      
         if (!executed)
         {
+          executed = true;
+          
           // Start the timer.
+          const currentTime = Date.parse(new Date());
+          const deadline = new Date(currentTime + timeInMinutes*60*1000);
+          initializeTimer(deadline);
         }
-      };
-    })();
+      }
+    );
 }
 
-/* Function initializeTimer() initializes the timer and renders it in the webpage.
+/* Function displayTimer() initializes the timer and renders it in the webpage.
    Precondition: The webpage's fully loaded.
    Postcondition: The timer's initialized and rendered in the webpage.
 */
-function initializeTimer()
+function displayTimer(timeInMinutes)
 {
-    // Display the timer.
-    let timeInMinutes = 10;
     document.querySelector(".minutes").innerHTML = `${timeInMinutes}`;
     document.querySelector(".seconds").innerHTML = `00`;
 }
 
+/* function initializeTimer()  */
+function initializeTimer(endTime)
+{
+    // Get the timer's minutes and seconds.
+    const minutesSpan = document.querySelector('.minutes');
+    const secondsSpan = document.querySelector('.seconds');
+
+    // Create a function that'll update the timer.
+    function updateTimer()
+    {
+        // Update the timer.
+        const timer = getTimeRemaining(endTime);
+        minutesSpan.innerHTML = ('0' + timer.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + timer.seconds).slice(-2);
+
+        // Clear the interval from the timeInterval variable.
+        if (timer.total <= 0)
+        {
+          clearInterval(timeinterval);
+        }
+    }
+
+    // Call updateTimer() to avoid a delay and create a variable that'll update the clock every second.
+    updateTimer();
+    const timeinterval = setInterval(updateTimer, 1000);
+}
+
+/* function getTimeRemaining(endTime) */
+function getTimeRemaining(endTime)
+{
+    // Calculate the number of minutes and seconds remaining on the timer.
+    const total = Date.parse(endTime) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+
+    // Return an object consisting of the remaining time.
+    return {total, minutes, seconds};
+}
 
 /* Function play() */
 function play()
@@ -52,43 +93,3 @@ function generateMathProblem()
     // 
 }
 
-/* Countdown Timer Code Below */
-
-/*function getTimeRemaining(endtime) {
-    const total = Date.parse(endtime) - Date.parse(new Date());
-    const seconds = Math.floor((total / 1000) % 60);
-    const minutes = Math.floor((total / 1000 / 60) % 60);
-    
-    return {
-      total,
-      minutes,
-      seconds
-    };
-  }
-  
-  function initializeClock(id, endtime) {
-    const clock = document.querySelector(id);
-    const minutesSpan = clock.querySelector('.minutes');
-    const secondsSpan = clock.querySelector('.seconds');
-  
-    function updateClock() {
-      const t = getTimeRemaining(endtime);
-      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-  
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
-    }
-  
-    updateClock();
-    const timeinterval = setInterval(updateClock, 1000);
-  }
-  
-  const timeInMinutes = 10;
-  const currentTime = Date.parse(new Date());
-  const deadline = new Date(currentTime + timeInMinutes*60*1000);
-  initializeClock('.timer', deadline);
-  
-  
-*/
