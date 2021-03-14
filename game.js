@@ -91,15 +91,15 @@ function getTimeRemaining(endTime)
 function play()
 {
     // Generate a math problem.
-    const mathProblem = generateMathProblem();
+    let {firstOperand, operator, secondOperand} = generateMathProblem();
 
     // Determine whether the player's answer is correct.
     const button = document.querySelector(".enter-choice-btn");
     button.addEventListener("click", () => {
-        evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand);
+        evaluateMathProblem(firstOperand, operator, secondOperand);
     });
 
-    // 
+    //
 }
 
 /* Function generateMathProblem() generates a math problem for the player to answer.
