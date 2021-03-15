@@ -33,7 +33,15 @@ function ready()
       }, false);
 
     // Start the game.
-    play();
+    let multiplier = {num: 1};
+    let mathProblem = generateMathProblem();
+    let firstOperand = mathProblem[0], operator = mathProblem[1], secondOperand = mathProblem[2];
+    const button = document.querySelector(".enter-choice-btn");
+    button.addEventListener("click", () => {
+        evaluateMathProblem(firstOperand, operator, secondOperand, multiplier);
+        mathProblem = generateMathProblem();
+        firstOperand = mathProblem[0], operator = mathProblem[1], secondOperand = mathProblem[2];
+    });
 }
 
 /* TIMER FUNCTIONS */
@@ -87,21 +95,6 @@ function getTimeRemaining(endTime)
 
 /* GAME FUNCTIONS */
 
-/* Function play() */
-function play()
-{
-    // Generate a math problem.
-    let {firstOperand, operator, secondOperand} = generateMathProblem();
-
-    // Determine whether the player's answer is correct.
-    const button = document.querySelector(".enter-choice-btn");
-    button.addEventListener("click", () => {
-        evaluateMathProblem(firstOperand, operator, secondOperand);
-    });
-
-    //
-}
-
 /* Function generateMathProblem() generates a math problem for the player to answer.
    Precondition: The webpage's fully loaded and the player clicks the "ENTER CHOICE" button.
    Postcondition: A new math problem is rendered in the game container.
@@ -134,11 +127,16 @@ function generateMathProblem()
     document.querySelector(".math-problem").innerHTML = `${firstOperand} ${operator} ${secondOperand}`;
 
     // Return an object consisting of the first operand, second operand, and operator.
-    return {firstOperand, operator, secondOperand};
+    return [firstOperand, operator, secondOperand];
 }
 
-/* Function evaluateMathProblem(firstOperand, operator, secondOperand) */
-function evaluateMathProblem(firstOperand, operator, secondOperand)
+/* Function evaluateMathProblem(firstOperand, operator, secondOperand) evaluates the current math problem.
+   If the player answered correctly, then the score will increase by 10 * multiplier. Otherwise, the
+   score will decrease by 5.
+   Precondition: The timer hasn't expired and the player clicked the button.
+   Postcondition: The score either increases or decreases.
+*/
+function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
 {
     // Determine whether the player answered the problem correctly.
     const input = document.querySelector(".player-choice");
@@ -147,57 +145,145 @@ function evaluateMathProblem(firstOperand, operator, secondOperand)
         case "+":
             if (parseInt(input.value) === firstOperand + secondOperand)
             {
-                // Increase the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) + 10;
+                // Increase the score and the multiplier.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + 10;
+                    multiplier.num = 2;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
+                    multiplier.num = multiplier.num + 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             else
             {
-                // Decrease the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) - 5;
+                // Decrease the score by 5 and the multiplier by 1.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    multiplier.num = multiplier.num - 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             break;
         case "-":
             if (parseInt(input.value) === firstOperand - secondOperand)
             {
-                // Increase the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) + 10;
+                // Increase the score and the multiplier.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + 10;
+                    multiplier.num = 2;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
+                    multiplier.num = multiplier.num + 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             else
             {
-                // Decrease the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) - 5;
+                // Decrease the score by 5 and the multiplier by 1.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    multiplier.num = multiplier.num - 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             break;
         case "*":
             if (parseInt(input.value) === firstOperand * secondOperand)
             {
-                // Increase the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) + 10;
+                // Increase the score and the multiplier.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + 10;
+                    multiplier.num = 2;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
+                    multiplier.num = multiplier.num + 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             else
             {
-                // Decrease the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) - 5;
+                // Decrease the score by 5 and the multiplier by 1.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    multiplier.num = multiplier.num - 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             break;
         case "/":
             if (parseInt(input.value) === firstOperand / secondOperand)
             {
-                // Increase the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) + 10;
+                // Increase the score and the multiplier.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + 10;
+                    multiplier.num = 2;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
+                    multiplier.num = multiplier.num + 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             else
             {
-                // Decrease the score.
-                const score = document.querySelector(".score");
-                score.innerHTML = parseInt(score.innerHTML) - 5;
+                // Decrease the score by 5 and the multiplier by 1.
+                if (multiplier.num === 1)
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                }
+                else
+                {
+                    const score = document.querySelector(".score");
+                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    multiplier.num = multiplier.num - 1;
+                    document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                }
             }
             break;
     }

@@ -35,7 +35,7 @@
 
 }
 
-.score, .score-label
+.score, .score-label, .multiplier, .multiplier-label
 {
     font-weight: bold;
 }
