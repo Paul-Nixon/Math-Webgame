@@ -34,13 +34,17 @@ function ready()
 
     // Start the game.
     let multiplier = {num: 1};
-    let mathProblem = generateMathProblem();
-    let firstOperand = mathProblem[0], operator = mathProblem[1], secondOperand = mathProblem[2];
+    let mathProblem = 
+    {
+        firstOperand: 0,
+        operator: "",
+        secondOperand: 0
+    };
+    generateMathProblem(mathProblem);
     const button = document.querySelector(".enter-choice-btn");
     button.addEventListener("click", () => {
-        evaluateMathProblem(firstOperand, operator, secondOperand, multiplier);
-        mathProblem = generateMathProblem();
-        firstOperand = mathProblem[0], operator = mathProblem[1], secondOperand = mathProblem[2];
+        evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand, multiplier);
+        generateMathProblem(mathProblem);
     });
 }
 
@@ -99,35 +103,32 @@ function getTimeRemaining(endTime)
    Precondition: The webpage's fully loaded and the player clicks the "ENTER CHOICE" button.
    Postcondition: A new math problem is rendered in the game container.
 */
-function generateMathProblem()
+function generateMathProblem(mathProblem)
 {
     // Generate two operands.
-    const firstOperand = Math.floor(Math.random() * 11); // Returns a random integer from 0 to 10
-    const secondOperand = Math.floor(Math.random() * 11);
+    mathProblem.firstOperand = Math.floor(Math.random() * 11); // Returns a random integer from 0 to 10
+    mathProblem.secondOperand = Math.floor(Math.random() * 11);
 
     // Generate an operator.
-    let operator = "";
     switch (Math.floor(Math.random() * 4) + 1)
     {
         case 1:
-            operator = "+";
+            mathProblem.operator = "+";
             break;
         case 2:
-            operator = "-";
+            mathProblem.operator = "-";
             break;
         case 3:
-            operator = "*";
+            mathProblem.operator = "*";
             break;
         case 4:
-            operator = "/";
+            mathProblem.operator = "/";
             break;
     }
 
     // Display the math problem.
-    document.querySelector(".math-problem").innerHTML = `${firstOperand} ${operator} ${secondOperand}`;
-
-    // Return an object consisting of the first operand, second operand, and operator.
-    return [firstOperand, operator, secondOperand];
+    document.querySelector(".math-problem").innerHTML = `${mathProblem.firstOperand} ${mathProblem.operator} 
+    ${mathProblem.secondOperand}`;
 }
 
 /* Function evaluateMathProblem(firstOperand, operator, secondOperand) evaluates the current math problem.
