@@ -33,8 +33,9 @@ function ready()
       }, false);
 
     // Start the game.
-    let multiplier = {num: 1};
-    let mathProblem = 
+    sessionStorage.setItem("highScore", "0");
+    const multiplier = {num: 1};
+    const mathProblem = 
     {
         firstOperand: 0,
         operator: "",
@@ -45,7 +46,7 @@ function ready()
     button.addEventListener("click", () => {
         evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand, multiplier);
         generateMathProblem(mathProblem);
-    });
+    }, false);
 }
 
 /* TIMER FUNCTIONS */
@@ -123,6 +124,10 @@ function generateMathProblem(mathProblem)
             break;
         case 4:
             mathProblem.operator = "/";
+            while (mathProblem.secondOperand === 0)
+            {
+                mathProblem.secondOperand = Math.floor(Math.random() * 11);
+            }
             break;
     }
 
@@ -153,6 +158,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
                 else
                 {
@@ -160,6 +170,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
             }
             else
@@ -189,6 +204,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
                 else
                 {
@@ -196,6 +216,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
             }
             else
@@ -225,6 +250,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
                 else
                 {
@@ -232,6 +262,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
             }
             else
@@ -252,7 +287,7 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
             }
             break;
         case "/":
-            if (parseInt(input.value) === firstOperand / secondOperand)
+            if ((Number.isInteger(firstOperand / secondOperand) && parseInt(input.value) === firstOperand / secondOperand) || (!Number.isInteger(firstOperand / secondOperand) && parseFloat(input.value) === Math.round((firstOperand / secondOperand) * 100) / 100))
             {
                 // Increase the score and the multiplier.
                 if (multiplier.num === 1)
@@ -261,6 +296,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+                    
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
                 else
                 {
@@ -268,6 +308,11 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
+
+                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+                    {
+                        sessionStorage.setItem("highScore", score.innerHTML);
+                    }
                 }
             }
             else
