@@ -16,12 +16,12 @@ else
 function ready()
 {
     // Start the timer when the player clicks the number input.
-    const timeInMinutes = 10;
+    const timeInMinutes = 1;
     let executed = false;
     const input = document.querySelector(".player-choice");
     input.addEventListener("click", () => {
       
-        if (!executed)
+        if (!executed) // If the timer's not running, then start it
         {
           executed = true;
           
@@ -42,11 +42,37 @@ function ready()
         secondOperand: 0
     };
     generateMathProblem(mathProblem);
-    const button = document.querySelector(".enter-choice-btn");
-    button.addEventListener("click", () => {
+    const enterChoiceButton = document.querySelector(".enter-choice-btn");
+    enterChoiceButton.addEventListener("click", () => {
         evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand, multiplier);
         generateMathProblem(mathProblem);
     }, false);
+
+    /* When the user clicks the "play again" button, reset the timer, re-display it, the math problem,
+       the input, and the "enter choice" button, and generate a new math problem.
+    */
+       const playAgainButton = document.querySelector(".play-again-btn");
+       playAgainButton.addEventListener("click", () => {
+           // Reset the timer.
+           document.querySelector('.minutes').innerHTML = ``;
+           document.querySelector('.seconds').innerHTML = ``;
+           executed = false; // So the closure inside the input's event listener can start the timer
+
+           // Display the timer, math problem, input, and "enter choice" button.
+           document.querySelector(".timer").classList.remove("hide-during-postgame");
+           document.querySelector(".math-problem").classList.remove("hide-during-postgame");
+           document.querySelector(".player-choice").classList.remove("hide-during-postgame");
+           document.querySelector(".enter-choice-btn").classList.remove("hide-during-postgame");
+
+           // Hide the "game over" title, final score, high score, and "play again" button.
+           document.querySelector(".game-over-title").classList.add("hide-during-game");
+           document.querySelector(".final-score").classList.add("hide-during-game");
+           document.querySelector(".high-score").classList.add("hide-during-game");
+           document.querySelector(".play-again-btn").classList.add("hide-during-game");
+
+           // Generate a new math problem.
+           generateMathProblem(mathProblem);
+       }, false);
 }
 
 /* TIMER FUNCTIONS */
@@ -69,10 +95,22 @@ function initializeTimer(endTime)
         minutesSpan.innerHTML = ('0' + timer.minutes).slice(-2);
         secondsSpan.innerHTML = ('0' + timer.seconds).slice(-2);
 
-        // Clear the interval from the timeInterval variable if the remaining time runs out.
-        if (timer.total <= 0)
+        if (timer.total <= 0) // If the timer expires
         {
-          clearInterval(timeInterval);
+            // Clear the interval from the timeInterval variable.
+            clearInterval(timeInterval);
+
+            // Display the "game over" title, final score, high score, and "play again" button.
+            document.querySelector(".game-over-title").classList.remove("hide-during-game");
+            document.querySelector(".final-score").classList.remove("hide-during-game");
+            document.querySelector(".high-score").classList.remove("hide-during-game");
+            document.querySelector(".play-again-btn").classList.remove("hide-during-game");
+
+            // Hide the timer, math problem, input, and "enter choice" button.
+            document.querySelector(".timer").classList.add("hide-during-postgame");
+            document.querySelector(".math-problem").classList.add("hide-during-postgame");
+            document.querySelector(".player-choice").classList.add("hide-during-postgame");
+            document.querySelector(".enter-choice-btn").classList.add("hide-during-postgame");
         }
     }
 

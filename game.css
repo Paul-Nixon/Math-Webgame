@@ -1,40 +1,3 @@
-/* Screen that appears when the webpage fully loads */
-.intro-overlay
-{
-
-}
-
-/* Screen that appears when the user clicks the "how-to-play" button */
-.how-to-play-overlay
-{
-    
-}
-
-.how-to-play-btn
-{
-
-}
-
-.how-to-play-btn:hover
-{
-
-}
-
-.play-btn
-{
-
-}
-
-.play-btn:hover
-{
-
-}
-
-.title
-{
-
-}
-
 .score, .score-label, .multiplier, .multiplier-label
 {
     font-weight: bold;
@@ -65,7 +28,7 @@
     border-radius: 20px;
 }
 
-.math-problem
+.math-problem, .final-score, .high-score
 {
     font-size: 2em;
     font-weight: bold;
@@ -82,7 +45,7 @@
     border: 3px solid blue;
 }
 
-.enter-choice-btn
+.enter-choice-btn, .play-again-btn
 {
     cursor: pointer;
     text-align: center;
@@ -95,7 +58,7 @@
     font-size: 1em;
 }
 
-.enter-choice-btn:hover
+.enter-choice-btn:hover, .play-again-btn:hover
 {
     background-color: rgb(216, 21, 216);
 }
@@ -105,3 +68,16 @@
     font-weight: bold;
     font-size: 3em;
 }
+
+.game-over-title
+{
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hide-during-game, .hide-during-postgame
+{
+    display: none;
+}
+

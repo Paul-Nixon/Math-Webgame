@@ -12,7 +12,7 @@
 <body>
     <!-- Header Section -->
     <header class="main-header">
-        <button class="btn how-to-play-btn">How-to-Play</button>
+        <button class="how-to-play-btn">How-to-Play</button>
         <h1 class="title">Math Webgame</h1>
         <span class="score-label">Score: </span>&ThinSpace;<span class="score">0</span>
         <span class="multiplier-label">Multiplier:</span>&ThinSpace;<span class="multiplier">1x</span>
@@ -24,10 +24,14 @@
             <div class="timer">
                 <span class="minutes"></span> : <span class="seconds"></span>
             </div>
+            <h1 class="game-over-title hide-during-game">GAME OVER</h1> <!-- hidden during the game -->
             <div class="game-container">
                 <span class="math-problem"></span>
+                <span class="final-score hide-during-game">Final Score: 0</span> <!-- hidden during the game -->
                 <input type="number" class="player-choice">
+                <span class="high-score hide-during-game">High Score: 0</span> <!-- hidden during the game -->
                 <button type="button" class="enter-choice-btn">ENTER CHOICE</button>
+                <button type="button" class="play-again-btn hide-during-game">PLAY AGAIN</button> <!-- hidden during the game -->
             </div>
         </div>
     </section>
