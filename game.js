@@ -58,20 +58,15 @@ function ready()
            document.querySelector('.seconds').innerHTML = ``;
            executed = false; // So the closure inside the input's event listener can start the timer
 
-           // Display the timer, math problem, input, and "enter choice" button.
-           document.querySelector(".timer").classList.remove("hide-during-postgame");
-           document.querySelector(".math-problem").classList.remove("hide-during-postgame");
-           document.querySelector(".player-choice").classList.remove("hide-during-postgame");
-           document.querySelector(".enter-choice-btn").classList.remove("hide-during-postgame");
-
-           // Hide the "game over" title, final score, high score, and "play again" button.
-           document.querySelector(".game-over-title").classList.add("hide-during-game");
-           document.querySelector(".final-score").classList.add("hide-during-game");
-           document.querySelector(".high-score").classList.add("hide-during-game");
-           document.querySelector(".play-again-btn").classList.add("hide-during-game");
-
+           // Render the normal game screen.
+           displayNormalGameScreen();
+           
            // Generate a new math problem.
            generateMathProblem(mathProblem);
+
+           // Reset the multiplier to 1x.
+           multiplier.num = 1;
+           document.querySelector(".multiplier").innerHTML = `1x`;
        }, false);
 }
 
@@ -100,17 +95,8 @@ function initializeTimer(endTime)
             // Clear the interval from the timeInterval variable.
             clearInterval(timeInterval);
 
-            // Display the "game over" title, final score, high score, and "play again" button.
-            document.querySelector(".game-over-title").classList.remove("hide-during-game");
-            document.querySelector(".final-score").classList.remove("hide-during-game");
-            document.querySelector(".high-score").classList.remove("hide-during-game");
-            document.querySelector(".play-again-btn").classList.remove("hide-during-game");
-
-            // Hide the timer, math problem, input, and "enter choice" button.
-            document.querySelector(".timer").classList.add("hide-during-postgame");
-            document.querySelector(".math-problem").classList.add("hide-during-postgame");
-            document.querySelector(".player-choice").classList.add("hide-during-postgame");
-            document.querySelector(".enter-choice-btn").classList.add("hide-during-postgame");
+            // Display the endgame info.
+            displayEndgameInfo();
         }
     }
 
@@ -196,11 +182,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
                 else
                 {
@@ -208,11 +189,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
             }
             else
@@ -242,11 +218,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
                 else
                 {
@@ -254,11 +225,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
             }
             else
@@ -288,11 +254,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
                 else
                 {
@@ -300,11 +261,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
             }
             else
@@ -334,11 +290,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + 10;
                     multiplier.num = 2;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-                    
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
                 else
                 {
@@ -346,11 +297,6 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                     score.innerHTML = parseInt(score.innerHTML) + (10 * multiplier.num);
                     multiplier.num = multiplier.num + 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
-
-                    if (parseInt(score.innerHTML) > parseInt(sessionStorage.getItem("highScore")))
-                    {
-                        sessionStorage.setItem("highScore", score.innerHTML);
-                    }
                 }
             }
             else
@@ -371,4 +317,68 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
             }
             break;
     }
+}
+
+/* HELPER FUNCTIONS */
+
+/* Function displayEndgameInfo() renders a "game over" title, the final score, the high score, and a
+   "play again" button. Also, it simultaneously hides the timer, math problems, input, and "enter choice" button.
+   Precondition: The timer expired.
+   Postcondition: a "game over" title, the final score, the high score, and a "play again" button are rendered, and 
+   the timer, math problems, input, and "enter choice" button are hidden.
+*/
+function displayEndgameInfo()
+{
+    // Display the "game over" title, final score, high score, and "play again" button.
+    document.querySelector(".game-over-title").classList.remove("hide-during-game");
+    document.querySelector(".final-score").classList.remove("hide-during-game");
+    document.querySelector(".high-score").classList.remove("hide-during-game");
+    document.querySelector(".play-again-btn").classList.remove("hide-during-game");
+
+    // Hide the timer, math problem, input, and "enter choice" button.
+    document.querySelector(".timer").classList.add("hide-during-postgame");
+    document.querySelector(".math-problem").classList.add("hide-during-postgame");
+    document.querySelector(".player-choice").classList.add("hide-during-postgame");
+    document.querySelector(".enter-choice-btn").classList.add("hide-during-postgame");
+
+    /* Display the final score and high score. If the player broke their high score, then render a
+       statement indicating that they got a new high score. Else, just display the current high score. 
+    */
+    document.querySelector(".final-score").innerHTML = `Final Score: ${document.querySelector(".score").innerHTML}`;
+
+    if (parseInt(document.querySelector(".score").innerHTML) > parseInt(sessionStorage.getItem("highScore")))
+    {
+        document.querySelector(".high-score").innerHTML = `New High Score: ${document.querySelector(".score").innerHTML}!`;
+        sessionStorage.setItem("highScore", document.querySelector(".score").innerHTML);
+    }
+    else
+    {
+        document.querySelector(".high-score").innerHTML = `High Score: ${sessionStorage.getItem("highScore")}`;
+    }
+}
+
+/* Function displayNormalGameScreen() renders the timer, math problem, input, and "enter choice" button.
+   Also, it simultaneously hides the "game over" title, final score, high score, and "play again" button, and
+   resets the score to 0.
+   Precondition: The timer expired.
+   Postcondition: the timer, math problems, input, and "enter choice" button are rendered, the
+   the "game over" title, final score, high score, and "play again" button are hidden, and the score's reset
+   to 0.
+*/
+function displayNormalGameScreen()
+{
+    // Display the timer, math problem, input, and "enter choice" button.
+    document.querySelector(".timer").classList.remove("hide-during-postgame");
+    document.querySelector(".math-problem").classList.remove("hide-during-postgame");
+    document.querySelector(".player-choice").classList.remove("hide-during-postgame");
+    document.querySelector(".enter-choice-btn").classList.remove("hide-during-postgame");
+
+    // Hide the "game over" title, final score, high score, and "play again" button.
+    document.querySelector(".game-over-title").classList.add("hide-during-game");
+    document.querySelector(".final-score").classList.add("hide-during-game");
+    document.querySelector(".high-score").classList.add("hide-during-game");
+    document.querySelector(".play-again-btn").classList.add("hide-during-game");
+
+    // Reset the score to 0.
+    document.querySelector(".score").innerHTML = `0`;
 }

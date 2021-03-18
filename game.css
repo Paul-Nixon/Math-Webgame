@@ -43,6 +43,7 @@
     padding: 0;
     text-align: center;
     border: 3px solid blue;
+    outline: none;
 }
 
 .enter-choice-btn, .play-again-btn
@@ -56,6 +57,7 @@
     padding: 0.67em;
     border-radius: 0.5em;
     font-size: 1em;
+    outline: none;
 }
 
 .enter-choice-btn:hover, .play-again-btn:hover
