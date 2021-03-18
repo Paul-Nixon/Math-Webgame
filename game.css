@@ -35,7 +35,7 @@
     color: white;
 }
 
-.player-choice
+.player-answer
 {
     height: 40px;
     width: 100px;
@@ -46,7 +46,7 @@
     outline: none;
 }
 
-.enter-choice-btn, .play-again-btn
+.enter-answer-btn, .play-again-btn
 {
     cursor: pointer;
     text-align: center;

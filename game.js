@@ -18,7 +18,7 @@ function ready()
     // Start the timer when the player clicks the number input.
     const timeInMinutes = 1;
     let executed = false;
-    const input = document.querySelector(".player-choice");
+    const input = document.querySelector(".player-answer");
     input.addEventListener("click", () => {
       
         if (!executed) // If the timer's not running, then start it
@@ -42,10 +42,25 @@ function ready()
         secondOperand: 0
     };
     generateMathProblem(mathProblem);
-    const enterChoiceButton = document.querySelector(".enter-choice-btn");
-    enterChoiceButton.addEventListener("click", () => {
-        evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand, multiplier);
-        generateMathProblem(mathProblem);
+    const enterAnswerButton = document.querySelector(".enter-answer-btn");
+    enterAnswerButton.addEventListener("click", () => {
+        if (executed) // If the user clicked the input to start the timer before entering their answer
+        {
+            evaluateMathProblem(mathProblem.firstOperand, mathProblem.operator, mathProblem.secondOperand, multiplier);
+            generateMathProblem(mathProblem);
+        }
+        else
+        {
+            executed = true;
+          
+            // Start the timer.
+            const currentTime = Date.parse(new Date());
+            const deadline = new Date(currentTime + timeInMinutes*60*1000);
+            initializeTimer(deadline);
+
+            // Decrease the player's score since they entered no answer.
+            document.querySelector(".score").innerHTML = `-10`;
+        }
     }, false);
 
     /* When the user clicks the "play again" button, reset the timer, re-display it, the math problem,
@@ -168,8 +183,8 @@ function generateMathProblem(mathProblem)
 */
 function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
 {
-    // Determine whether the player answered the problem correctly.
-    const input = document.querySelector(".player-choice");
+    // Determine whether the player answered the current math problem correctly.
+    const input = document.querySelector(".player-answer");
     switch (operator)
     {
         case "+":
@@ -197,12 +212,12 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                 if (multiplier.num === 1)
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - 10;
                 }
                 else
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - (10 * (multiplier.num - 1));
                     multiplier.num = multiplier.num - 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
                 }
@@ -233,12 +248,12 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                 if (multiplier.num === 1)
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - 10;
                 }
                 else
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - (10 * (multiplier.num - 1));
                     multiplier.num = multiplier.num - 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
                 }
@@ -269,12 +284,12 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                 if (multiplier.num === 1)
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - 10;
                 }
                 else
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - (10 * (multiplier.num - 1));
                     multiplier.num = multiplier.num - 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
                 }
@@ -305,12 +320,12 @@ function evaluateMathProblem(firstOperand, operator, secondOperand, multiplier)
                 if (multiplier.num === 1)
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - 10;
                 }
                 else
                 {
                     const score = document.querySelector(".score");
-                    score.innerHTML = parseInt(score.innerHTML) - 5;
+                    score.innerHTML = parseInt(score.innerHTML) - (10 * (multiplier.num - 1));
                     multiplier.num = multiplier.num - 1;
                     document.querySelector(".multiplier").innerHTML = `${multiplier.num}x`;
                 }
@@ -338,8 +353,8 @@ function displayEndgameInfo()
     // Hide the timer, math problem, input, and "enter choice" button.
     document.querySelector(".timer").classList.add("hide-during-postgame");
     document.querySelector(".math-problem").classList.add("hide-during-postgame");
-    document.querySelector(".player-choice").classList.add("hide-during-postgame");
-    document.querySelector(".enter-choice-btn").classList.add("hide-during-postgame");
+    document.querySelector(".player-answer").classList.add("hide-during-postgame");
+    document.querySelector(".enter-answer-btn").classList.add("hide-during-postgame");
 
     /* Display the final score and high score. If the player broke their high score, then render a
        statement indicating that they got a new high score. Else, just display the current high score. 
@@ -370,8 +385,8 @@ function displayNormalGameScreen()
     // Display the timer, math problem, input, and "enter choice" button.
     document.querySelector(".timer").classList.remove("hide-during-postgame");
     document.querySelector(".math-problem").classList.remove("hide-during-postgame");
-    document.querySelector(".player-choice").classList.remove("hide-during-postgame");
-    document.querySelector(".enter-choice-btn").classList.remove("hide-during-postgame");
+    document.querySelector(".player-answer").classList.remove("hide-during-postgame");
+    document.querySelector(".enter-answer-btn").classList.remove("hide-during-postgame");
 
     // Hide the "game over" title, final score, high score, and "play again" button.
     document.querySelector(".game-over-title").classList.add("hide-during-game");
