@@ -163,7 +163,7 @@ function generateMathProblem(mathProblem)
             break;
         case 4:
             mathProblem.operator = "/";
-            while (mathProblem.secondOperand === 0)
+            while (mathProblem.secondOperand === 0) // So the denominator won't be 0
             {
                 mathProblem.secondOperand = Math.floor(Math.random() * 11);
             }

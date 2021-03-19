@@ -61,8 +61,19 @@
 
             <h3 id="answering-questions" class="how-to-play-sub-section-title">Answering Questions</h3>
             <ul>
-                <li>Answering a question correctly increases the score by 10 points</li>
-                <li>Answering a question incorrectly decreases the score by 5 points</li>
+                <li>
+                    Enter an answer in the input located at the game container's center, then click
+                    the button below it to submit your answer
+                </li>
+                <li>
+                    If a division question results in a float, then enter an answer w/2 decimal places
+                    in the input
+                </li>
+                <li>
+                    Clicking the button while the input is empty and the timer isn't running (the game's initial 
+                    state) will decrease the score by 10 points
+                </li>
+                <li>After clicking the submit button, the next math problem will be randomized</li>
             </ul>
 
             <h3 id="multiplier" class="how-to-play-sub-section-title">Multiplier</h3>
@@ -75,15 +86,20 @@
                     answers a question correctly (For example, if the score is 30, the multiplier is
                     3x, and a correct answer was made, then the updated score would be 60)
                 </li>
+                <li>
+                    Decreases the score by the result of 10 times its number minus 1 (10 * (multiplier - 1)) if
+                    the player answers a question incorrectly (For example, if the score is 30, the multiplier is
+                    3x, and an incorrect answer was made, then the updated score would be 10)
+                </li>
             </ul>
 
             <h3 id="timer" class="how-to-play-sub-section-title">Timer</h3>
             <ul>
-                <li>Starts as soon as the webpage fully loads</li>
+                <li>Starts when the player first clicks the input</li>
                 <li> 
-                    When it expires, an overlay will appear displaying the number of correct and
-                    incorrect answers, the final score and high score, and a button prompting the user
-                    to play the game again (everything restarts when the user clicks the "play again" button)
+                    When it expires, the webpage will display "GAME OVER" above the game's container,
+                    the final score, the high score, and a button prompting the user to play the game again
+                    (the score and multiplier will reset when the user clicks it)
                 </li>
             </ul>
         </div>
