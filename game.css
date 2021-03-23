@@ -7,7 +7,90 @@ body
 {
     margin: 0;
     padding: 0;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
+/* Header Title start */
+
+.titlecard{
+  font-style: italic;
+  color: white;
+  font-family:Arial, Helvetica, sans-serif
+}
+
+/* Header Title end */
+
+
+/* Navigation Menu Css  Start*/
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+  background-color: #555;
+  height: 500px;
+  color: white;
+  border-radius: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: show;
+}
+
+.topnav a {
+  float: left;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a.icon {
+  float: right;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+/* Navigation Menu Css End */
+
+
+
+/* NavBar Style Start*/
+.topnav {
+  overflow: hidden;
+  background-color: rgb(163, 6, 129);
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #000300;
+  color: white;
+}
+/* NavBar End*/
 
 .header
 {
@@ -16,47 +99,12 @@ body
     align-items: center;
 }
 
-.intro-overlay
-{
-
-}
-
-.how-to-play-overlay
-{
-    
-}
-
 .btn
 {
     vertical-align: middle;
     cursor: pointer;
     text-align: center;
     padding: 0.5em;
-}
-
-.how-to-play-btn
-{
-
-}
-
-.how-to-play-btn:hover
-{
-
-}
-
-.play-btn
-{
-
-}
-
-.play-btn:hover
-{
-
-}
-
-.title
-{
-
 }
 
 .score
@@ -80,3 +128,326 @@ body
     justify-content: space-between;
     align-items: center;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+/* About Section Start */
+  /* Container which holds our respective name, picture, and description */
+.profile-section
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+.section-title{
+  font-weight: normal;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.625rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  
+
+
+}
+
+.name-and-pfp-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5625rem; /* Equivalent to 25px */
+}
+
+/* Our Names */
+.name
+{
+    font-weight: normal;
+    text-align: center;
+    font-size: 2.25em;
+    margin-bottom: 0.25em;
+    color: white;
+}
+
+/* Profile Picture Start */
+.pfp
+{
+    margin: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: purple 0px 0px 20px;
+    position: relative;
+
+}
+/* Profile Picture End */
+
+
+
+/* About Section Start */
+.profile-text
+{
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media (max-width: 600px)
+{
+
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-section
+    {
+        flex-direction: column;
+    }
+    
+    .name-and-pfp-wrapper
+    {
+        margin-bottom: 1.5625rem; /* Equivalent to 25px */
+    }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(163, 6, 129);
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+h2{
+  color: white;
+}
+/* About Section End */
+
+
+/* How to play Section Start*/
+.how-to-play-section-title{
+  font-weight: normal;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 0.625rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-weight: bold;
+
+}
+
+.how-to-play-sub-section-title{
+  font-weight: normal;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 0.625rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-weight: bold;
+}
+
+li{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: capitalize;
+  font-size: x-large;
+}
+/* How to play Section End*/
+
+
+/*Social Media Buttons Start */
+.fa-linkedin {
+   padding: 20px;
+   font-size: 30px;
+   text-align: center;
+   text-decoration: none;
+   margin: 5px 2px;
+   border-radius: 50%;
+   background: #007bb5;
+   color: white;
+}
+.fa-github {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  background: #050708;
+  color: white;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+/* Social Media Buttons End */
+
+
+/* Math WebGame Style Start */
+.score, .score-label, .multiplier, .multiplier-label
+{
+    font-weight: bold;
+    color: white;
+}
+
+.ingamecontainer
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.game-container
+{
+    background: linear-gradient(to right, red, orange);
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+}
+
+.math-problem, .final-score, .high-score
+{
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+.player-answer
+{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    padding: 0;
+    text-align: center;
+    border: 3px solid blue;
+    outline: none;
+}
+
+.enter-answer-btn, .play-again-btn
+{
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    color: yellow;
+    background-color: purple;
+    padding: 0.67em;
+    border-radius: 0.5em;
+    font-size: 1em;
+    outline: none;
+}
+
+.enter-choice-btn:hover, .play-again-btn:hover
+{
+    background-color: rgb(216, 21, 216);
+}
+
+.timer
+{
+    font-weight: bold;
+    font-size: 3em;
+    color: white;
+}
+
+.game-over-title
+{
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 0;
+    color: white;
+}
+
+.hide-during-game, .hide-during-postgame
+{
+    display: none;
+}
+/* Math WebGame Style End */

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Math Webgame</title>
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="intro-overlay"></div>
+        <div class="how-to-play-overlay"></div>
+        <h1 class="titlecard">Math WebGame</h1>
+    </header>
+
+    <!-- Navigation Menu Start -->
+
+    <div class="topnav">
+        <a class="active" href="/howtoplay.html">Home</a>
+        <div id="myLinks">
+        <a href="/howtoplay.html">How-to-play</a>
+        <a href="/MathWebGame.html">Math WebGame</a>
+        <a href="/About.html">About</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+      </div>
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+    <!-- Navigation Menu End -->
+
+   <!-- Main Section -->
+   <section class="content-section">
+    <div class="webgamecontainer">
+        <h2 class="section-title">How to Play</h2>
+        
+        <!-- Webpage Navigation -->
+        <h2 class="how-to-play-section-title">Navigation</h2>
+        <ul class="how-to-play-nav">
+            <li><a href="#layout">Layout</a></li>
+            <li>
+                <a href="#gameplay">Gameplay</a>
+                <ul>
+                    <li><a href="#answering-questions">Answering Questions</a></li>
+                    <li><a href="#multiplier">Multiplier</a></li>
+                    <li><a href="#timer">Timer</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Layout -->
+        <h2 id="layout" class="how-to-play-section-title">Layout</h2>
+        <ul>
+            <li>Timer (above the container)</li>
+            <li>Score (top right)</li>
+            <li>Multiplier (next to the score)</li>
+            <li>
+                Container (center of the screen)
+                <ul>
+                    <li>Math problem</li>
+                    <li>Number input field</li>
+                    <li>Submit button</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Gameplay -->
+        <h2 id="gameplay" class="how-to-play-section-title">Gameplay</h2>
+
+        <h3 id="answering-questions" class="how-to-play-sub-section-title">Answering Questions</h3>
+        <ul>
+            <li>
+                Enter an answer in the input located at the game container's center, then click
+                the button below it to submit your answer
+            </li>
+            <li>
+                If a division question results in a float, then enter an answer w/2 decimal places
+                in the input
+            </li>
+            <li>
+                Clicking the button while the input is empty and the timer isn't running (the game's initial 
+                state) will decrease the score by 10 points
+            </li>
+            <li>After clicking the submit button, the next math problem will be randomized</li>
+        </ul>
+
+        <h3 id="multiplier" class="how-to-play-sub-section-title">Multiplier</h3>
+        <ul>
+            <li>Starts at 1x</li>
+            <li>Increases by 1 if the player answers a question correctly</li>
+            <li>Decreases by 1 if the player answers a question incorrectly</li>
+            <li>
+                Increases the score by the result of its number times 10 if the player
+                answers a question correctly (For example, if the score is 30, the multiplier is
+                3x, and a correct answer was made, then the updated score would be 60)
+            </li>
+        </ul>
+
+        <h3 id="timer" class="how-to-play-sub-section-title">Timer</h3>
+        <ul>
+            <li>Starts as soon as the webpage fully loads</li>
+            <li> 
+                When it expires, an overlay will appear displaying the number of correct and
+                incorrect answers, the final score and high score, and a button prompting the user
+                to play the game again (everything restarts when the user clicks the "play again" button)
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+</html>

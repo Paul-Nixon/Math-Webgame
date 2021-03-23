@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title class="Title">Math Webgame</title>
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="intro-overlay"></div>
+        <div class="how-to-play-overlay"></div>
+        <h1 class="titlecard">Math WebGame</h1>
+    </header>
+
+    <!-- Navigation Menu Start -->
+
+    <div class="topnav">
+        <a class="active" href="/howtoplay.html">Home</a>
+        <div id="myLinks">
+        <a href="/howtoplay.html">How-to-play</a>
+        <a href="/MathWebGame.html">Math WebGame</a>
+        <a href="/About.html">About</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+      </div>
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+    <!-- Navigation Menu End -->
+
+<!-- Main Section -->
+<section class="content-section">
+        <div class="about-section">
+          <h2 class="section-title">Get to Know Us</h2>
+          <p>We hope you had fun with our game if you want to know what else we are working on check out the links below </p>
+        </div>
+        <h2 style="text-align:center">Our Team</h2>
+        <div class="row">
+          <div class="name-and-pfp-wrapper">
+            <div class="profile-section">
+              <img src="https://user-images.githubusercontent.com/42850145/110048488-8f7c3800-7d15-11eb-845e-55d0bd9f9c46.png" alt="Paul-Vance Nixon picture" class="pfp">
+              <div class="container">
+                <h2 class="name">Paul-Vance Nixon Jr.</h2>
+                <p class="profile-text">
+                  Hello! I'm a motivated & persistent software and web developer who's determined to create high-quality products consumers will enjoy. Isaiah and I are currently job-hunting, so sharing this project will definitely help us achieve this goal. Use the links below to contact me. Thanks for viewing this project Isaiah and I collaborated on!
+                </p>
+                <a href="https://www.linkedin.com/in/paul-vance-nixon-4043a0141/" class="fa fa-linkedin"></a>
+                <a href="https://github.com/Paul-Nixon" class="fa fa-github"></a>
+              </div>
+            </div>
+          </div>
+          <div class="name-and-pfp-wrapper">
+            <div class="profile-section">
+              <img src="https://avatars.githubusercontent.com/u/19332587?s=460&u=0d4526685c619b8fa85f95667151b2b68762fcfc&v=4" alt="Isaiah Vertus picture" class="pfp">
+              <div class="container">
+                <h2 class="name">Isaiah Vertus</h2>
+                <p class="profile-text">
+                  Welcome! I am an avide developer and programmer working with Paul to create this website. 
+                  Along with this I am looking for a full time role in Web Development or Software Development.
+                  Check out my links below along with my Portfolio when you get a chance. 
+              </p>
+              <a href="https://www.linkedin.com/in/isaiah-vertus/" class="fa fa-linkedin"></a>
+              <a href="https://github.com/IsaiahIJV" class="fa fa-github"></a>
+              <a href="https://isaiahvertus.com/" class="button">Portfolio</a>
+
+              </div>
+            </div>
+          </div>
+   
+</body>
+</html>
