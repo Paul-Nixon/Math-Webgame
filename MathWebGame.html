@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title class="Title">Math Webgame</title>
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="intro-overlay"></div>
+        <div class="how-to-play-overlay"></div>
+        <h1 class="titlecard">Math WebGame</h1>
+        <span class="score-label">Score: </span>&ThinSpace;<span class="score">0</span>
+        <span class="multiplier-label">Multiplier:</span>&ThinSpace;<span class="multiplier">1x</span>
+    </header>
+
+    <!-- Navigation Menu Start -->
+
+    <div class="topnav">
+        <a class="active" href="/howtoplay.html">Home</a>
+        <div id="myLinks">
+        <a href="/howtoplay.html">How-to-play</a>
+        <a href="/MathWebGame.html">Math WebGame</a>
+        <a href="/About.html">About</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+      </div>
+
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+
+    <!-- Navigation Menu End -->
+
+
+    <!-- Main/Game Section -->
+    <section class="content-section">
+      <div class="ingamecontainer">
+          <div class="timer">
+              <span class="minutes"></span> : <span class="seconds"></span>
+          </div>
+          <h1 class="game-over-title hide-during-game">GAME OVER</h1> <!-- hidden during the game -->
+          <div class="game-container">
+              <span class="math-problem"></span>
+              <span class="final-score hide-during-game"></span> <!-- hidden during the game -->
+              <input type="number" class="player-answer">
+              <span class="high-score hide-during-game"></span> <!-- hidden during the game -->
+              <button type="button" class="enter-answer-btn">ENTER ANSWER</button>
+              <button type="button" class="play-again-btn hide-during-game">PLAY AGAIN</button> <!-- hidden during the game -->
+          </div>
+      </div>
+  </section> -->
+</body>
+</html>
