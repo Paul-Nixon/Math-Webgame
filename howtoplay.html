@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Math Webgame</title>
-    <script src="game.js" defer></script>
+    <title>How-to-Play</title>
     <link rel="stylesheet" href="game.css">
 </head>
 <body>
@@ -20,9 +19,9 @@
     <!-- Navigation Menu Start -->
 
     <div class="topnav">
-        <a class="active" href="/howtoplay.html">Home</a>
+        <a href="/howtoplay.html">Home</a>
         <div id="myLinks">
-        <a href="/howtoplay.html">How-to-play</a>
+        <a href="/howtoplay.html">How-to-Play</a>
         <a href="/MathWebGame.html">Math WebGame</a>
         <a href="/About.html">About</a>
         </div>
@@ -108,6 +107,11 @@
                 Increases the score by the result of its number times 10 if the player
                 answers a question correctly (For example, if the score is 30, the multiplier is
                 3x, and a correct answer was made, then the updated score would be 60)
+            </li>
+            <li>
+                Decreases the score by the result of 10 times the multiplier minus 1 (10 * (multiplier - 1))
+                if the player answers a question incorrectly (For example, if the score is 30, the multiplier is
+                3x, and an incorrect answer was made, then the updated score would be 10)
             </li>
         </ul>
 

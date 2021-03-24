@@ -12,44 +12,48 @@
 <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="intro-overlay"></div>
-        <div class="how-to-play-overlay"></div>
         <h1 class="titlecard">Math WebGame</h1>
-        <span class="score-label">Score: </span>&ThinSpace;<span class="score">0</span>
-        <span class="multiplier-label">Multiplier:</span>&ThinSpace;<span class="multiplier">1x</span>
-    </header>
 
-    <!-- Navigation Menu Start -->
+        <!-- Navigation Menu Start -->
 
-    <div class="topnav">
-        <a class="active" href="/howtoplay.html">Home</a>
-        <div id="myLinks">
-        <a href="/howtoplay.html">How-to-play</a>
-        <a href="/MathWebGame.html">Math WebGame</a>
-        <a href="/About.html">About</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-          </a>
-      </div>
+        <nav class="topnav">
+          <a href="/howtoplay.html">Home</a>
+          <div id="myLinks">
+          <a href="/howtoplay.html">How-to-play</a>
+          <a class="active" href="/MathWebGame.html">Math WebGame</a>
+          <a href="/About.html">About</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </nav>
 
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myLinks");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
+        <script>
+          function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
           }
-        }
-        </script>
+          </script>
 
     <!-- Navigation Menu End -->
 
+    </header>
 
     <!-- Main/Game Section -->
     <section class="content-section">
       <div class="ingamecontainer">
+          <div class="score-and-multiplier-wrapper">
+            <div class="score-wrapper">
+              <span class="score-label">Score: </span>&ThinSpace;<span class="score">0</span>
+            </div>
+            <div class="multiplier-wrapper">
+              <span class="multiplier-label">Multiplier:</span>&ThinSpace;<span class="multiplier">1x</span>
+            </div>
+          </div>
           <div class="timer">
               <span class="minutes"></span> : <span class="seconds"></span>
           </div>
