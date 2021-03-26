@@ -11,35 +11,32 @@
 <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="intro-overlay"></div>
-        <div class="how-to-play-overlay"></div>
         <h1 class="titlecard">Math WebGame</h1>
-    </header>
+        
+        <!-- Navigation Menu Start -->
 
-    <!-- Navigation Menu Start -->
-
-    <div class="topnav">
-        <a class="active" href="/howtoplay.html">Home</a>
-        <div id="myLinks">
-        <a href="/howtoplay.html">How-to-play</a>
-        <a href="/MathWebGame.html">Math WebGame</a>
-        <a href="/About.html">About</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+        <nav class="topnav">
+          <div id="myLinks">
+            <a href="/howtoplay.html">Home</a>
+            <a href="/howtoplay.html">How-to-Play</a>
+            <a href="/MathWebGame.html">Math WebGame</a>
+            <a class="active" href="/About.html">About</a>
+          </div>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
           </a>
-      </div>
+          </nav>
 
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myLinks");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
+        <script defer>
+          function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
           }
-        }
-        </script>
+          </script>
 
     <!-- Navigation Menu End -->
 

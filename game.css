@@ -91,6 +91,11 @@ body
 .topnav a.active {
   background-color: #4CAF50;;
 }
+
+.icon
+{
+  display: none;
+}
 /* NavBar End*/
 
 .header
@@ -232,6 +237,14 @@ ul {
     .score-and-multiplier-wrapper
     {
       flex-direction: column;
+    }
+
+    #myLinks
+    {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 }
 

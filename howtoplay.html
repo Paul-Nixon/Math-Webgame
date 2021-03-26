@@ -11,37 +11,37 @@
 <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="intro-overlay"></div>
-        <div class="how-to-play-overlay"></div>
         <h1 class="titlecard">Math WebGame</h1>
+        
+        <!-- Navigation Menu Start -->
+
+        <nav class="topnav">
+            <div id="myLinks">
+              <a href="/howtoplay.html">Home</a>
+              <a class="active" href="/howtoplay.html">How-to-Play</a>
+              <a href="/MathWebGame.html">Math WebGame</a>
+              <a href="/About.html">About</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            </nav>
+  
+          <script defer>
+            function myFunction() {
+              var x = document.getElementById("myLinks");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+            }
+            </script>
+  
+      <!-- Navigation Menu End -->
+  
     </header>
 
-    <!-- Navigation Menu Start -->
-
-    <div class="topnav">
-        <a href="/howtoplay.html">Home</a>
-        <div id="myLinks">
-        <a href="/howtoplay.html">How-to-Play</a>
-        <a href="/MathWebGame.html">Math WebGame</a>
-        <a href="/About.html">About</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-          </a>
-      </div>
-
-      <script>
-        function myFunction() {
-          var x = document.getElementById("myLinks");
-          if (x.style.display === "block") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "block";
-          }
-        }
-        </script>
-
-    <!-- Navigation Menu End -->
 
    <!-- Main Section -->
    <section class="content-section">
