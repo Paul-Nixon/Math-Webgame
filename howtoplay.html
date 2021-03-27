@@ -62,68 +62,85 @@
             </li>
         </ul>
 
-        <!-- Layout -->
-        <h2 id="layout" class="how-to-play-section-title">Layout</h2>
-        <ul>
-            <li>Timer (above the container)</li>
-            <li>Score (top right)</li>
-            <li>Multiplier (next to the score)</li>
-            <li>
-                Container (center of the screen)
+        <div class="details-container">
+            <!-- Layout -->
+            <details>
+                <summary>Layout</summary>
+
+                <h3 id="layout" class="how-to-play-sub-section-title">Layout</h3>
                 <ul>
-                    <li>Math problem</li>
-                    <li>Number input field</li>
-                    <li>Submit button</li>
+                    <li>Timer (above the container)</li>
+                    <li>Score (next to the multiplier)</li>
+                    <li>Multiplier (next to the score)</li>
+                    <li>Container (center of the screen)</li>
+                    <li>Math problem (top of the container)</li>
+                    <li>Number input field (center of the container)</li>
+                    <li>Submit button (bottom of the container)</li>
                 </ul>
-            </li>
-        </ul>
+            </details>
 
-        <!-- Gameplay -->
-        <h2 id="gameplay" class="how-to-play-section-title">Gameplay</h2>
+            <!-- Gameplay -->
+            <details>
+                <summary>Gameplay</summary>
 
-        <h3 id="answering-questions" class="how-to-play-sub-section-title">Answering Questions</h3>
-        <ul>
-            <li>
-                Enter an answer in the input located at the game container's center, then click
-                the button below it to submit your answer
-            </li>
-            <li>
-                If a division question results in a float, then enter an answer w/2 decimal places
-                in the input
-            </li>
-            <li>
-                Clicking the button while the input is empty and the timer isn't running (the game's initial 
-                state) will decrease the score by 10 points
-            </li>
-            <li>After clicking the submit button, the next math problem will be randomized</li>
-        </ul>
+                <details>
+                    <summary class="sub-summary">Answering Questions</summary>
 
-        <h3 id="multiplier" class="how-to-play-sub-section-title">Multiplier</h3>
-        <ul>
-            <li>Starts at 1x</li>
-            <li>Increases by 1 if the player answers a question correctly</li>
-            <li>Decreases by 1 if the player answers a question incorrectly</li>
-            <li>
-                Increases the score by the result of its number times 10 if the player
-                answers a question correctly (For example, if the score is 30, the multiplier is
-                3x, and a correct answer was made, then the updated score would be 60)
-            </li>
-            <li>
-                Decreases the score by the result of 10 times the multiplier minus 1 (10 * (multiplier - 1))
-                if the player answers a question incorrectly (For example, if the score is 30, the multiplier is
-                3x, and an incorrect answer was made, then the updated score would be 10)
-            </li>
-        </ul>
+                    <h3 id="answering-questions" class="how-to-play-sub-section-title">Answering Questions</h3>
+                    <ul>
+                        <li>
+                            Enter an answer in the input located at the game container's center, then click
+                            the button below it to submit your answer
+                        </li>
+                        <li>
+                            If a division question results in a float, then enter an answer w/2 decimal places
+                            in the input
+                        </li>
+                        <li>
+                            Clicking the button while the input is empty and the timer isn't running (the game's initial 
+                            state) will decrease the score by 10 points
+                        </li>
+                        <li>After clicking the submit button, the next math problem will be randomized</li>
+                    </ul>
+                </details>
 
-        <h3 id="timer" class="how-to-play-sub-section-title">Timer</h3>
-        <ul>
-            <li>Starts as soon as the webpage fully loads</li>
-            <li> 
-                When it expires, an overlay will appear displaying the number of correct and
-                incorrect answers, the final score and high score, and a button prompting the user
-                to play the game again (everything restarts when the user clicks the "play again" button)
-            </li>
-        </ul>
+                <details>
+                    <summary class="sub-summary">Multiplier</summary>
+
+                    <h3 id="multiplier" class="how-to-play-sub-section-title">Multiplier</h3>
+                    <ul>
+                        <li>Starts at 1x</li>
+                        <li>Increases by 1 if the player answers a question correctly</li>
+                        <li>Decreases by 1 if the player answers a question incorrectly</li>
+                        <li>
+                            Increases the score by the result of its number times 10 if the player
+                            answers a question correctly (For example, if the score is 30, the multiplier is
+                            3x, and a correct answer was made, then the updated score would be 60)
+                        </li>
+                        <li>
+                            Decreases the score by the result of 10 times the multiplier minus 1 (10 * (multiplier - 1))
+                            if the player answers a question incorrectly (For example, if the score is 30, the multiplier is
+                            3x, and an incorrect answer was made, then the updated score would be 10)
+                        </li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary class="sub-summary">Timer</summary>
+
+                    <h3 id="timer" class="how-to-play-sub-section-title">Timer</h3>
+                    <ul>
+                        <li>Starts as soon as the webpage fully loads</li>
+                        <li> 
+                            When it expires, an overlay will appear displaying the number of correct and
+                            incorrect answers, the final score and high score, and a button prompting the user
+                            to play the game again (everything restarts when the user clicks the "play again" button)
+                        </li>
+                    </ul>
+                </details>
+            </details>
+        </div>
+        
     </div>
 </section>
 </body>

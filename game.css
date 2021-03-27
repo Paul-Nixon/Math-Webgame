@@ -197,7 +197,6 @@ ul {
     width: 200px;
     border-radius: 50%;
     box-shadow: purple 0px 0px 20px;
-    position: relative;
 
 }
 /* Profile Picture End */
@@ -307,6 +306,15 @@ h2{
 
 
 /* How to play Section Start*/
+.how-to-play-nav li
+{
+  font-size: 25px;
+}
+
+.how-to-play-nav li a
+{
+  color: white;
+}
 .how-to-play-section-title{
   font-weight: normal;
   font-size: 2.5em;
@@ -332,7 +340,30 @@ li{
   color: rgb(255, 255, 255);
   text-align: center;
   text-transform: capitalize;
-  font-size: larger;
+  font-size:x-large;
+}
+
+.details-container
+{
+  margin-top: 2.25rem; /* Equivalent to 20px */
+}
+
+summary
+{
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-left: 1.25rem; /* Equivalent to 20px */
+}
+
+.sub-summary
+{
+  margin-left: 2.25rem; /* Equivalent to 36px */
+}
+
+details > ul
+{
+  margin-bottom: 1.25em;
 }
 /* How to play Section End*/
 
