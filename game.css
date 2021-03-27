@@ -83,7 +83,7 @@ body
   font-size: 17px;
 }
 
-.topnav a:hover {
+.topnav a:hover, .how-to-play-nav a:hover {
   background-color: #ddd;
   color: black;
 }
@@ -196,7 +196,7 @@ ul {
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    box-shadow: purple 0px 0px 20px;
+    box-shadow: purple 0px 0px 35px;
 
 }
 /* Profile Picture End */
@@ -210,6 +210,7 @@ ul {
     text-align: center;
     color: white;
     font-family: 'Times New Roman', Times, serif;
+    font-size: large;
 }
 
 @media (max-width: 600px)
