@@ -1,0 +1,7 @@
+# **Visual Studio Code Download and Setup**
+1. Download and install [Visual Studio Code](https://code.visualstudio.com/download)
+2. Open Visual Studio Code -> Click the Extensions button on the left sidebar (or use Ctrl+Shift+X) -> Type "live server" in the search bar -> Click Live Server -> Install. This extension allows you to launch a local development server w/a live reload feature so you can quickly update web files on a web browser without having to refresh it.
+3. Download [the project's zip file](https://github.com/Paul-Nixon/Math-Webgame/archive/refs/heads/main.zip) and extract the folder inside of it -> Click the Explorer button (or use Ctrl+Shift+E) -> Open Folder -> Select the extracted folder -> Open index.html
+4. Click Go Live in the status bar or Right-Click -> Open with Live Server; Your default web browser will  then display index.html. When you change a web file and save it while Live Server is running, the changes will simultaneously display in your web browser. Also, when you re-open Visual Studio Code after closing it, make sure you turn on Live Server in an HTML file, otherwise your web browser will not display the document correctly.<br></br>
+![Image of installing Live Server by searching through Extensions](https://user-images.githubusercontent.com/42850145/104787665-c42c3400-5755-11eb-80e8-b2220b486a6c.PNG)
+![Image of disabling Live Server](https://user-images.githubusercontent.com/42850145/104787886-7237de00-5756-11eb-9485-b590fc4b296c.PNG)

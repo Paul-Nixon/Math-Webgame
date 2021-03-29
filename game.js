@@ -16,7 +16,7 @@ else
 function ready()
 {
     // Start the timer when the player clicks the number input.
-    const timeInMinutes = 1;
+    const timeInMinutes = 5; // Change the number to change the clock's time
     let executed = false;
     const input = document.querySelector(".player-answer");
     input.addEventListener("click", () => {
