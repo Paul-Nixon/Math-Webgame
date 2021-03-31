@@ -475,7 +475,7 @@ details > ul
     outline: none;
 }
 
-.enter-answer-btn, .play-again-btn
+.enter-answer-btn, .play-again-btn, .about-us-btn
 {
     cursor: pointer;
     text-align: center;
@@ -487,11 +487,13 @@ details > ul
     border-radius: 0.5em;
     font-size: 1em;
     outline: none;
+    transition: color 300ms ease-in-out;
 }
 
-.enter-choice-btn:hover, .play-again-btn:hover
+.enter-choice-btn:hover, .play-again-btn:hover, .about-us-btn:hover
 {
     background-color: rgb(216, 21, 216);
+    color: black;
 }
 
 .timer
@@ -514,3 +516,109 @@ details > ul
     display: none;
 }
 /* Math WebGame Style End */
+
+
+/* index.html Style Start */
+.intro-container
+{
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  flex-grow: 1;
+}
+
+.cta-wrapper
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.intro-title
+{
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.subtitle
+{
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+}
+
+.btn-wrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-us-btn
+{
+  font-size: 1.5em;
+}
+
+.play-game-btn
+{
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  padding: 0.67em;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  outline: none;
+  background: linear-gradient(to right, red, orange);
+  color: blue;
+  transition: color 300ms ease-in-out;
+  margin-right: 1.5em;
+}
+
+.play-game-btn:hover
+{
+  color: lightblue;
+}
+
+.img-wrapper
+{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  height: 546px;
+}
+
+.game-img
+{
+  background-image: url(https://user-images.githubusercontent.com/42850145/113217963-57004900-9244-11eb-894a-3f1f8d07b2d4.png);
+  flex-grow: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-height: 70vh;
+  min-width: 30vw;
+  background-position: center;
+}
+
+@media (max-width: 900px)
+{
+  .intro-container
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-wrapper
+  {
+    align-items: center;
+  }
+}
+/* index.html Style End */
